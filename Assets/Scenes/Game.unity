@@ -216,103 +216,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 6030672266747742215, guid: a96fb0752594ea448b08e1359c0b30d6, type: 3}
   m_PrefabInstance: {fileID: 582252707}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &173757240
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 173757241}
-  - component: {fileID: 173757242}
-  m_Layer: 0
-  m_Name: JumpController
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &173757241
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 173757240}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1422446775}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &173757242
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 173757240}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 901ae56a0a11e914d9458b092eafbf36, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::JumpController
-  inputController: {fileID: 645192238}
-  characterController: {fileID: 1422446776}
-  jumpVelocity: 4
-  gravity: -20
---- !u!1 &566984527
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 566984528}
-  - component: {fileID: 566984529}
-  m_Layer: 0
-  m_Name: MovementController
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &566984528
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 566984527}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1422446775}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &566984529
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 566984527}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f8da1435c2905d64c9e9bed1bd8bbb10, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::MovementController
-  inputController: {fileID: 645192238}
-  characterController: {fileID: 1422446776}
-  jumpController: {fileID: 173757242}
-  movementSpeed: 5
-  rotationSpeed: 10
 --- !u!1001 &582252707
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -538,8 +441,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 5.3999996, y: 2.511542, z: 5.3999996}
-  m_Center: {x: 2.5, y: 1.255771, z: -2.5}
+  m_Size: {x: 5.293785, y: 2.3172119, z: 5.3999996}
+  m_Center: {x: 2.4468927, y: 1.1586059, z: -2.5}
 --- !u!1 &1039092224
 GameObject:
   m_ObjectHideFlags: 0
@@ -756,6 +659,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1422446775}
   - component: {fileID: 1422446776}
+  - component: {fileID: 1422446779}
+  - component: {fileID: 1422446778}
+  - component: {fileID: 1422446777}
+  - component: {fileID: 1422446782}
   m_Layer: 0
   m_Name: Biden
   m_TagString: Untagged
@@ -777,8 +684,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4580726}
-  - {fileID: 566984528}
-  - {fileID: 173757241}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!143 &1422446776
@@ -806,6 +711,83 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0.87, z: 0}
+--- !u!114 &1422446777
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1422446773}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e553764e62c334459278fb4903ff9c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CharacterAnimationController
+  characterController: {fileID: 1422446776}
+  animator: {fileID: 4580728}
+  animationConfiguration: {fileID: 11400000, guid: 7e53602d31b30854f93101eedddb6212, type: 2}
+  crossFadeDuration: 0.1
+--- !u!114 &1422446778
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1422446773}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 901ae56a0a11e914d9458b092eafbf36, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::JumpController
+  inputController: {fileID: 645192238}
+  characterController: {fileID: 1422446776}
+  jumpVelocity: 4
+  gravity: -20
+--- !u!114 &1422446779
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1422446773}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8da1435c2905d64c9e9bed1bd8bbb10, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MovementController
+  inputController: {fileID: 645192238}
+  characterController: {fileID: 1422446776}
+  jumpController: {fileID: 1422446778}
+  movementSpeed: 5
+  rotationSpeed: 10
+--- !u!114 &1422446782
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1422446773}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e483d0acee69b34887c73688f1145c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RollController
+  inputController: {fileID: 645192238}
+  onRoll:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1422446777}
+        m_TargetAssemblyTypeName: CharacterAnimationController, Assembly-CSharp
+        m_MethodName: Roll
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1795111095
 GameObject:
   m_ObjectHideFlags: 0

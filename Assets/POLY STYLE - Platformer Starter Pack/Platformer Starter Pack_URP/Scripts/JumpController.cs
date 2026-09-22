@@ -18,7 +18,7 @@ public class JumpController : MonoBehaviour
 
     [SerializeField]
 
-    private float gravity = 15f;
+    private float gravity = -15f;
 
     private float verticalVelocity;
 
