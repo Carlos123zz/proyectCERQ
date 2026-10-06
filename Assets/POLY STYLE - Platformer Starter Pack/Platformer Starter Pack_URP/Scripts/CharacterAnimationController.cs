@@ -15,9 +15,6 @@ public class CharacterAnimationController : MonoBehaviour
     [SerializeField]
 
     private PlayerAnimationConfiguration animationConfiguration;
-    [SerializeField]
-
-    private float crossFadeDuration = 0.1f;
 
     private string currentAnimation;
 
@@ -27,15 +24,35 @@ public class CharacterAnimationController : MonoBehaviour
 
     private bool wasGrounded;
 
-    public void Roll()
+    private bool isActive = true;
+
+    public bool IsActive { set => isActive = value; }
+
+    public void Die()
+
     {
+
+        isActive = false;
+
+        PlayAnimation(animationConfiguration.dieAnimationName);
+
+    }
+
+    public void Roll()
+
+    {
+
         isRolling = true;
+
         PlayAnimation(animationConfiguration.rollAnimationName);
+
     }
 
     private void Update()
 
     {
+
+        if (!isActive) return;
 
         bool isGrounded = characterController.isGrounded;
 
@@ -159,7 +176,7 @@ public class CharacterAnimationController : MonoBehaviour
 
         {
 
-            animator.CrossFade(animationName, crossFadeDuration);
+            animator.CrossFade(animationName, 0.1f);
 
             currentAnimation = animationName;
 
@@ -180,3 +197,4 @@ public class CharacterAnimationController : MonoBehaviour
     }
 
 }
+
