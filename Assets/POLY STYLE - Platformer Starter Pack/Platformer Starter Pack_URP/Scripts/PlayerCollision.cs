@@ -46,7 +46,7 @@ public class PlayerCollision : MonoBehaviour
 
         {
 
-            if (TryGetComponent(out Enemy enemy))
+            if (other.TryGetComponent(out Enemy enemy))
 
             {
 
