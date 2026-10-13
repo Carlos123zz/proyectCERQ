@@ -38,7 +38,7 @@ public class PoolManager : MonoBehaviour
 
     }
 
-    public GameObject GetObject(GameObject prefab, Vector3 position)
+    public GameObject GetObject(GameObject prefab, Vector3 position, bool isTurnedOff = false)
 
     {
 
@@ -46,7 +46,7 @@ public class PoolManager : MonoBehaviour
 
         {
 
-            pool.InstantiateObject(position);
+            pool.InstantiateObject(position, isTurnedOff);
 
             return pool.CurrentObject;
 
@@ -58,10 +58,22 @@ public class PoolManager : MonoBehaviour
 
             RegisterPrefab(prefab);
 
-            return GetObject(prefab, position);
+            return GetObject(prefab, position, isTurnedOff);
 
         }
 
     }
-
+    public GameObject GetObject(GameObject prefab, Transform parent, bool isTurnedOff = false)
+    {
+        if (pools.TryGetValue(prefab, out Pool pool))
+        {
+            pool.InstantiateObject(parent, isTurnedOff);
+            return pool.CurrentObject;
+        }
+        else
+        {
+            RegisterPrefab(prefab);
+            return GetObject(prefab, parent, isTurnedOff);
+        }
+    }
 }
