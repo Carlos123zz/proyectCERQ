@@ -22,6 +22,16 @@ public class PlayerCollision : MonoBehaviour
 
     private RollController rollController;
 
+    private Invincibility invincibility;
+
+    private void Awake()
+
+    {
+
+        invincibility = GetComponent<Invincibility>();
+
+    }
+
     private void OnTriggerEnter(Collider other)
 
     {
@@ -45,6 +55,8 @@ public class PlayerCollision : MonoBehaviour
         else if (other.CompareTag("Enemy"))
 
         {
+
+            if (invincibility.IsGhost || invincibility.IsInvincible) return;
 
             if (other.TryGetComponent(out Enemy enemy))
 
@@ -72,9 +84,16 @@ public class PlayerCollision : MonoBehaviour
 
             }
 
+            else
+
+            {
+
+                onPlayerLose.Invoke();
+
+            }
+
         }
 
     }
 
 }
-
