@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Coin
   - Enemy
+  - Box
+  - FxTemporaire
+  - box
   layers:
   - Default
   - TransparentFX
