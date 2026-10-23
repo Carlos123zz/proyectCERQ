@@ -9,6 +9,8 @@ TagManager:
   - Box
   - FxTemporaire
   - box
+  - CheckPoint
+  - cliff
   layers:
   - Default
   - TransparentFX
