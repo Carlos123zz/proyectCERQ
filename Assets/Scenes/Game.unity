@@ -2330,18 +2330,6 @@ MonoBehaviour:
   onGameStart:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2081741330}
-        m_TargetAssemblyTypeName: PlayerStates, Assembly-CSharp
-        m_MethodName: Initialize
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 858633865}
         m_TargetAssemblyTypeName: CoinsController, Assembly-CSharp
         m_MethodName: Initialize
@@ -2366,9 +2354,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  onGameRestart:
-    m_PersistentCalls:
-      m_Calls:
+      - m_Target: {fileID: 913710635}
+        m_TargetAssemblyTypeName: Continues, Assembly-CSharp
+        m_MethodName: Initialize
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 2081741330}
         m_TargetAssemblyTypeName: PlayerStates, Assembly-CSharp
         m_MethodName: Initialize
@@ -2381,9 +2378,24 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  onGameRestart:
+    m_PersistentCalls:
+      m_Calls:
       - m_Target: {fileID: 1234269210}
         m_TargetAssemblyTypeName: CheckPointController, Assembly-CSharp
         m_MethodName: MovePlayerToCheckpoint
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2081741330}
+        m_TargetAssemblyTypeName: PlayerStates, Assembly-CSharp
+        m_MethodName: Initialize
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2772,6 +2784,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Continues
   continuesText: {fileID: 1991515885}
+  initialContinues: 3
 --- !u!1001 &916780662
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4485,7 +4498,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   jmpVelocity: 6
-  gravity: -40
+  gravity: -30
 --- !u!114 &1422446779
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5497,7 +5510,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Menu
+          m_StringArgument: Lose
           m_BoolArgument: 0
         m_CallState: 2
   deathDelay: 3
@@ -5999,6 +6012,7 @@ MonoBehaviour:
   target: {fileID: 1422446775}
   walkSmoothTime: 0.15
   jumpSmoothTime: 0.4
+  downLimit: 2
 --- !u!1 &1893889641
 GameObject:
   m_ObjectHideFlags: 0
@@ -6780,6 +6794,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1422446778}
+        m_TargetAssemblyTypeName: JumpController, Assembly-CSharp
+        m_MethodName: set_HasGravity
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
   onDie:
     m_PersistentCalls:
       m_Calls:
@@ -6834,6 +6860,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1648018609}
         m_TargetAssemblyTypeName: GameOverController, Assembly-CSharp
         m_MethodName: CheckGameOver
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: SonidoLose
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1422446786}
+        m_TargetAssemblyTypeName: Invincibility, Assembly-CSharp
+        m_MethodName: Kill
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

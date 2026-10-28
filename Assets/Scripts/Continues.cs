@@ -10,24 +10,31 @@ public class Continues : MonoBehaviour
 
     private TextMeshProUGUI continuesText;
 
+    [SerializeField]
+
+    private int initialContinues = 3;
+
     private int continuesCount;
 
     public bool HasContinues => continuesCount > 0;
 
-    private void Awake()
+    public void Initialize()
 
     {
 
-        continuesCount = PlayerPrefs.GetInt("ContinuesCount", 3);
-
+        continuesCount = PlayerPrefs.GetInt("ContinuesCount", initialContinues);
+        if (continuesCount <= 0)
+        {
+            continuesCount = initialContinues;
+            SetContinues(continuesCount);
+        }
         UpdateContinuesText();
-
     }
 
     private void UpdateContinuesText()
 
     {
-
+        if(continuesCount == null) return; 
         continuesText.text = "X" + continuesCount;
 
     }
@@ -42,6 +49,11 @@ public class Continues : MonoBehaviour
 
         UpdateContinuesText();
 
+    }
+
+    public void SetContinues(int count)
+    {
+        PlayerPrefs.SetInt("ContinuesCount", count); 
     }
 
 

@@ -16,6 +16,10 @@ public class CameraFollow : MonoBehaviour
 
     private float jumpSmoothTime = 0.3f;
 
+    [SerializeField]
+
+    private float downLimit = -1f; 
+
     private Vector3 offset;
 
     private Vector3 velocity;
@@ -40,7 +44,7 @@ public class CameraFollow : MonoBehaviour
 
         float z = Mathf.SmoothDamp(transform.position.z, targetPosition.z, ref velocity.z, walkSmoothTime);
 
-        transform.position = new Vector3(x, y, z);
+        transform.position = new Vector3(x, Mathf.Max(y,downLimit), z);
 
     }
 

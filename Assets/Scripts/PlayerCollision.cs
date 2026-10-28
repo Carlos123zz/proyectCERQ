@@ -135,6 +135,7 @@ public class PlayerCollision : MonoBehaviour
         }
         else if (other.CompareTag("cliff"))
         {
+            jumpController.HasGravity = false;
             onFall?.Invoke();
         }
 
