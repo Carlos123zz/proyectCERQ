@@ -1,6 +1,7 @@
 
 
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Invincibility : MonoBehaviour
 
@@ -17,6 +18,14 @@ public class Invincibility : MonoBehaviour
     private bool isInvincible;
 
     private bool isGhost;
+
+    [SerializeField]
+
+    private UnityEvent onInvicibilityStar;
+
+    [SerializeField]
+
+    private UnityEvent OnInvicibilityEnd;
 
     public bool IsInvincible => isInvincible;
 
@@ -70,6 +79,19 @@ public class Invincibility : MonoBehaviour
 
         isGhost = false;
 
+    }
+
+    public void ActivateInvincibility()
+    {
+        isInvincible = true;
+        onInvicibilityStar?.Invoke();
+        Invoke(nameof(EndInvincibility), invincibilityDuration);
+    }
+
+    public void EndInvincibility()
+    {
+        isInvincible = false;
+        OnInvicibilityEnd?.Invoke();
     }
 
 }

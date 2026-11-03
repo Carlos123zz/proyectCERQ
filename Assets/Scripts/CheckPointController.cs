@@ -7,6 +7,8 @@ public class CheckPointController : MonoBehaviour
     [SerializeField]
     private Transform player;
 
+    private CharacterController characterController;
+
     private Transform currentCheckpoint;
 
     public Transform CurrentCheckpoint { set { currentCheckpoint = value; } }
@@ -14,11 +16,14 @@ public class CheckPointController : MonoBehaviour
     private void Awake()
     {
         currentCheckpoint = startPoint;
+        characterController = player.GetComponent<CharacterController>();
     }
 
     public void MovePlayerToCheckpoint()
     {
+        characterController.enabled = false;
         player.position = currentCheckpoint.position;
+        characterController.enabled = true;
     }
 
 

@@ -12,6 +12,10 @@ public class PlayerCollision : MonoBehaviour
 
     [SerializeField]
 
+    private UnityEvent onMaskCollectted;
+
+    [SerializeField]
+
     private UnityEvent<Transform> onEnemyHit;
 
     [SerializeField]
@@ -139,6 +143,14 @@ public class PlayerCollision : MonoBehaviour
             onFall?.Invoke();
         }
 
+        else if (!other.CompareTag("Mask"))
+        {
+            if (other.TryGetComponent(out Item item))
+            {
+                onMaskCollectted?.Invoke();
+                item.Collect();
+            }
+        }
     }
 
     private void OnControllerColliderHit(ControllerColliderHit hit)
