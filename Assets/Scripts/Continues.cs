@@ -22,20 +22,29 @@ public class Continues : MonoBehaviour
 
     {
 
-        continuesCount = PlayerPrefs.GetInt("ContinuesCount", initialContinues);
+        continuesCount = PlayerPrefs.GetInt("ContinuesCount", 3);
+
         if (continuesCount <= 0)
+
         {
+
             continuesCount = initialContinues;
+
             SetContinues(continuesCount);
+
         }
+
         UpdateContinuesText();
+
     }
 
     private void UpdateContinuesText()
 
     {
-        if(continuesCount == null) return; 
-        continuesText.text = "X" + continuesCount;
+
+        if (continuesText == null) return;
+
+        continuesText.text = "x" + continuesCount;
 
     }
 
@@ -52,9 +61,23 @@ public class Continues : MonoBehaviour
     }
 
     public void SetContinues(int count)
+
     {
-        PlayerPrefs.SetInt("ContinuesCount", count); 
+
+        PlayerPrefs.SetInt("ContinuesCount", count);
+
     }
 
+    public void AddContinues(int amount)
+
+    {
+
+        continuesCount += amount;
+
+        PlayerPrefs.SetInt("ContinuesCount", continuesCount);
+
+        UpdateContinuesText();
+
+    }
 
 }

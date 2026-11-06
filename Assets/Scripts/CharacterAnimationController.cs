@@ -38,6 +38,12 @@ public class CharacterAnimationController : MonoBehaviour
 
     }
 
+    public void Dance()
+    {
+        isActive = false;
+        PlayAnimation(animationConfiguration.danceAnimationName);
+    }
+
     public void Roll()
 
     {

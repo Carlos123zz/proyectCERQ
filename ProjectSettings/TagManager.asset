@@ -13,6 +13,9 @@ TagManager:
   - cliff
   - mask
   - Mask
+  - Continue
+  - continue
+  - LevelGem
   layers:
   - Default
   - TransparentFX

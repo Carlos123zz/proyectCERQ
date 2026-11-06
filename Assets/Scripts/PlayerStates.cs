@@ -21,6 +21,10 @@ public class PlayerStates : MonoBehaviour
 
     private UnityEvent onLoseLife;
 
+    [SerializeField]
+
+    public UnityEvent onWin;
+
     public void Initialize()
 
     {
@@ -47,6 +51,10 @@ public class PlayerStates : MonoBehaviour
     public void LoseLife()
     {
         onLoseLife?.Invoke();
+    }
+    public void Win()
+    {
+        onWin?.Invoke();
     }
 
 }

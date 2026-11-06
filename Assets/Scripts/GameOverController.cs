@@ -20,6 +20,14 @@ public class GameOverController : MonoBehaviour
 
     [SerializeField]
 
+    private UnityEvent onWinGame;
+
+    [SerializeField]
+
+    private float WinDelay;
+
+    [SerializeField]
+
     private float deathDelay;
 
     public void CheckGameOver()
@@ -52,6 +60,16 @@ public class GameOverController : MonoBehaviour
 
         }
 
+    }
+
+    public void WinGame()
+    {
+        Invoke(nameof(InvokeWinGame), WinDelay);
+    }
+
+    private void InvokeWinGame()
+    {
+        onWinGame?.Invoke();
     }
 
 }

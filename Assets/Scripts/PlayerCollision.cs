@@ -12,6 +12,10 @@ public class PlayerCollision : MonoBehaviour
 
     [SerializeField]
 
+    private UnityEvent onContinueCollected;
+
+    [SerializeField]
+
     private UnityEvent onMaskCollectted;
 
     [SerializeField]
@@ -72,13 +76,13 @@ public class PlayerCollision : MonoBehaviour
 
         {
 
-            if (invincibility.IsGhost || invincibility.IsInvincible) return;
+            if (invincibility.IsGhost) return;
 
             if (other.TryGetComponent(out Enemy enemy))
 
             {
 
-                if (rollController.IsRolling)
+                if (rollController.IsRolling || invincibility.IsInvincible)
 
                 {
 
@@ -110,7 +114,7 @@ public class PlayerCollision : MonoBehaviour
 
             {
 
-                if (rollController.IsRolling)
+                if (rollController.IsRolling || invincibility.IsInvincible)
 
                 {
 
@@ -151,6 +155,14 @@ public class PlayerCollision : MonoBehaviour
                 item.Collect();
             }
         }
+        else if (other.CompareTag("Continue"))
+        {
+            if (other.TryGetComponent (out Item item))
+            {
+                onContinueCollected?.Invoke();
+                item.Collect();
+            }
+        }
     }
 
     private void OnControllerColliderHit(ControllerColliderHit hit)
@@ -173,6 +185,10 @@ public class PlayerCollision : MonoBehaviour
 
                     jumpController.Jump();
 
+                }
+                else if (invincibility.IsInvincible)
+                {
+                    box.Break();
                 }
 
             }
