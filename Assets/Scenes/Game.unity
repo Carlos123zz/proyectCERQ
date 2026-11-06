@@ -1481,7 +1481,7 @@ GameObject:
   - component: {fileID: 489859373}
   m_Layer: 0
   m_Name: LevelGem
-  m_TagString: Untagged
+  m_TagString: LevelGem
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
