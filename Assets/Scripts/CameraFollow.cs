@@ -1,5 +1,5 @@
 using UnityEngine;
-
+ 
 public class CameraFollow : MonoBehaviour
 
 {
@@ -18,12 +18,24 @@ public class CameraFollow : MonoBehaviour
 
     [SerializeField]
 
-    private float downLimit = -1f; 
+    private float downLimit = -1f;
+
+    [SerializeField]
+
+    private float lookAheadDistance = 1.2f;
+
+    [SerializeField]
+
+    private float lookAheadSmoothTime = 0.45f;
 
     private Vector3 offset;
 
     private Vector3 velocity;
 
+    private Vector3 lookAheadOffset;
+
+    private Vector3 lookAheadVelocity;
+ 
     private void Awake()
 
     {
@@ -31,12 +43,28 @@ public class CameraFollow : MonoBehaviour
         offset = transform.position - target.position;
 
     }
-
+ 
     private void LateUpdate()
 
     {
 
-        Vector3 targetPosition = target.position + offset;
+        Vector3 targetDirection = target.forward;
+
+        targetDirection.y = 0f;
+
+        if(targetDirection.magnitude > 0.001f)
+
+        {
+
+            targetDirection.Normalize();
+
+        }
+
+        Vector3 desiredLookAhead = targetDirection * lookAheadDistance;
+
+        lookAheadOffset = Vector3.SmoothDamp(lookAheadOffset, desiredLookAhead, ref lookAheadVelocity, lookAheadSmoothTime);
+
+        Vector3 targetPosition = target.position + offset +  lookAheadOffset;
 
         float x = Mathf.SmoothDamp(transform.position.x, targetPosition.x, ref velocity.x, walkSmoothTime);
 
@@ -44,8 +72,9 @@ public class CameraFollow : MonoBehaviour
 
         float z = Mathf.SmoothDamp(transform.position.z, targetPosition.z, ref velocity.z, walkSmoothTime);
 
-        transform.position = new Vector3(x, Mathf.Max(y,downLimit), z);
+        transform.position = new Vector3(x, Mathf.Max(y, downLimit), z);
 
     }
 
 }
+ 

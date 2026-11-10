@@ -16,6 +16,10 @@ public class PlayerCollision : MonoBehaviour
 
     [SerializeField]
 
+    private UnityEvent onLevelGemCollected;
+
+    [SerializeField]
+
     private UnityEvent onMaskCollectted;
 
     [SerializeField]
@@ -147,7 +151,7 @@ public class PlayerCollision : MonoBehaviour
             onFall?.Invoke();
         }
 
-        else if (!other.CompareTag("Mask"))
+        else if (other.CompareTag("Mask"))
         {
             if (other.TryGetComponent(out Item item))
             {
@@ -161,6 +165,14 @@ public class PlayerCollision : MonoBehaviour
             {
                 onContinueCollected?.Invoke();
                 item.Collect();
+            }
+        }
+            else if (other.CompareTag("LevelGem"))
+            {
+                if (other.TryGetComponent(out Item item))
+                {
+                    onLevelGemCollected?.Invoke();
+                    item.Collect();                
             }
         }
     }

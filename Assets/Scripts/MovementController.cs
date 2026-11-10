@@ -32,7 +32,9 @@ public class MovementController : MonoBehaviour
 
         Vector3 movementDirection = new Vector3(input.x, 0f, input.y);
 
-        if (movementDirection.sqrMagnitude > 0f)
+
+
+        if (movementDirection.sqrMagnitude > 0f && canMove)
 
         {
             RotateTowards(movementDirection);
