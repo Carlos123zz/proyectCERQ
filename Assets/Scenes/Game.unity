@@ -630,6 +630,10 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 1422446775}
+    - target: {fileID: 6215765774493357655, guid: 657802c68f4c82b418991a11b63390b1, type: 3}
+      propertyPath: followOffset.y
+      value: 1.11
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -8921,6 +8925,10 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 1422446775}
+    - target: {fileID: 6215765774493357655, guid: 657802c68f4c82b418991a11b63390b1, type: 3}
+      propertyPath: followOffset.x
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
