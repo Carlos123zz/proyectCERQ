@@ -74,7 +74,7 @@ public class Avatar : MonoBehaviour
 
         UpdateRotation();
 
-        UpdateFloating();
+        //UpdateFloating();
 
     }
 

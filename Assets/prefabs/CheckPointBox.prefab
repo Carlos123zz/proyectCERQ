@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3102043683971877602}
   m_Layer: 0
   m_Name: CheckPointBox
-  m_TagString: box
+  m_TagString: Box
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -71,7 +71,7 @@ MonoBehaviour:
   rewardObject: {fileID: 7521848371613986066, guid: c526c9d919cf3d94695854c4ed72bb38, type: 3}
   breakParticles: {fileID: 5312442384099756009, guid: 703a2712550b8de49b35ed3272dc057f, type: 3}
   breakSoundName: SoundBrake
-  rewardOffset: {x: 0, y: 0, z: 0}
+  rewardOffset: {x: 0, y: 0.3, z: 0}
 --- !u!54 &3102043683971877602
 Rigidbody:
   m_ObjectHideFlags: 0

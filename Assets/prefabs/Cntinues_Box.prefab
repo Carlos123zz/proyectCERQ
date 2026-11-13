@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5792801124709769459}
   - component: {fileID: 3102043683971877602}
   m_Layer: 0
-  m_Name: Continuos
+  m_Name: Cntinues_Box
   m_TagString: Box
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
